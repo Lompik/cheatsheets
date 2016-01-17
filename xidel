@@ -1,1 +1,1 @@
-xidel -q -e "//div/a[contains(@href,'uploaded.net')]/@href" http://www.dltobes.com/tutorials/2748530-puppet-fundamentals-for-system-administrators.html 
+xidel -q -e "//div/a[contains(@href,'up.net')]/@href" wwwsite
