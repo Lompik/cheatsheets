@@ -1,3 +1,15 @@
+# find traverses the filesystem hierarchy
+#  The  expression  is  made  up  of options (which affect overall operation rather than the processing of a specific file, and always return true), tests (which return a true or false value), and actions (which have side effects and return a true or false value), all separated by operators.  -and is assumed where the operator is omitted. If the expression contains no actions other than -prune, -print is performed on all files for which the expression is true.
+
+# [options] [tests+actions]  -- group tests inside \(\) for any common action
+
+# [Options] -regextype posix-extended, -mount or -xdev (dont descend mounted dir)
+
+# [Actions] -exec comman {} \; for command file1; command file2 or \+ for command file1 file2
+
+# e1 e2: Two expressions in a row are taken to be joined with an implied "and"; expr2 is not evaluated if expr1 is false.
+# precedence: ()> !> -not> e1 -a e2 (same as above)>e1 -o e2>e1 , e2
+
 # To find files by case-insensitive extension (ex: .jpg, .JPG, .jpG):
 find . -iname "*.jpg"
 
@@ -45,3 +57,11 @@ find . -type f -samefile MY_FILE_HERE 2>/dev/null
 
 # find directories containing FLAC files and move them.
 find -maxdepth 2 -type f -iname "*.flac" -exec dirname {} \; | sort | uniq | parallel -j1 -N100 mv {} /targetdir/
+
+# find file
+find \( -iname '*.html' -o -iname '*.css' \) -printf '%f -- %AT'
+
+# Search for regex type change -regextype type
+# Changes  the  regular  expression syntax understood by -regex and -iregex tests which occur later on the command line.  Currently-implemented types are emacs (this is the default), posix-awk, posix-basic, posix-egrep and posix-extended.
+# Matches against the whole (relative if .) path
+find . -regextype posix-extended ".*d{4}"
