@@ -13,3 +13,7 @@ perl -ne '/AAA.*BBB.*CCC/ && print'
 
 # Print all unique lines
 perl -ne 'print unless $a{$_}++'
+
+# Activate paragraph mode (-0 record separator)
+# print type.* until '\n\n' is found (with /s)
+perl  -000ne 'print if /(^type.*)/s '  file
