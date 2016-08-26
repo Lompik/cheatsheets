@@ -4,6 +4,8 @@
 # [options] [tests+actions]  -- group tests inside \(\) for any common action
 
 # [Options] -regextype posix-extended, -mount or -xdev (dont descend mounted dir)
+# several directories can be given /tmp /usr
+# 2>/dev/null to avoid permission denied
 
 # [Actions] -exec comman {} \; for command file1; command file2 or \+ for command file1 file2
 
