@@ -275,12 +275,12 @@ For history command 42
 
 ls /                  # recall/step through previous parameters *N*
 fred='/bin/path/fred.txt'
-echo ${fred:e}
-echo ${fred:t}
-echo ${fred:r}
-echo ${fred:h}
-echo ${fred:h:h}
-echo ${fred:t:r}
+echo ${fred:e}    ⇒  txt
+echo ${fred:t}    ⇒ fred.txt
+echo ${fred:r}    ⇒ /bin/path/fred
+echo ${fred:h}    ⇒ /bin/path
+echo ${fred:h:h}  ⇒ /bin
+echo ${fred:t:r}  ⇒ fred
 cd !$:h  (remove file name)
 # cd to directory containing report.php
 cd **/report.php(:h) *N*
