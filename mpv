@@ -17,5 +17,7 @@ _                    # Cycle through the available video tracks.
 h set hwdec no
 alt+k add sub-scale +0.2                  # increase subtitle font size
 alt+j add sub-scale -0.2                  # decrease subtitle font size
-a cycle-adevices (lua)
-n cycle-denoisers (lua)
+a cycle-adevices       (lua)
+n cycle-denoisers      (lua)
+c cycle-channel-layout (custom)
+b cycle-tscale         (custom)
