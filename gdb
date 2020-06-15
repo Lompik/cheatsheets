@@ -76,6 +76,7 @@ More important commands have a (*) by them.
 (gdb) dir dirname        # add directory to source path
 (gdb) dir                # reset source path to nothing
 (gdb) show directories   # show source path
+*(gdb) x/i $pc           # show current asm
 
 #Browsing Data
 *(gdb) print expression          # print expression, added to value history
