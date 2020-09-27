@@ -1,3 +1,6 @@
+# search for image in video
+ffmpeg  -i input_file.vid -r 1 -loop 1 -i input_img.jpg -an -filter_complex "blend=difference:shortest=1,blackframe=99:32" -f null - 2>&1
+
 # Basic rewrap command
 ffmpeg -i input_file.ext -c copy -map 0 output_file.ext
 # Rewrap DV video to .dv file
