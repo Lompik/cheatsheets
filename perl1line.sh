@@ -441,7 +441,7 @@ perl -ne 'print if /\d/'
 perl -ne 'print if /^\d+$/'
 
 # Print all lines that contain only characters
-perl -ne 'print if /^[[:alpha:]]+$/
+perl -ne 'print if /^[[:alpha:]]+$/'
 
 # Print every second line
 perl -ne 'print if $. % 2'
