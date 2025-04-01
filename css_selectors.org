@@ -1,0 +1,403 @@
+* CSS Selectors Cheatsheet
+:PROPERTIES:
+:CUSTOM_ID: css-selectors-cheatsheet
+:END:
+Hi! If you see an error or something is missing (like =:focus-within=
+for few years :P) please let me know :heart:
+
+** Element selectors
+:PROPERTIES:
+:CUSTOM_ID: element-selectors
+:END:
+*Element* -- selects all =h2= elements on the page
+
+#+begin_src css
+h2 {
+    foo: bar;
+}
+#+end_src
+
+*Group* -- selects all =h1=, =h2= and =h3= elements on the page
+
+#+begin_src css
+h1, h2, h3 {
+    foo: bar;
+}
+#+end_src
+
+** Class and ID selectors
+:PROPERTIES:
+:CUSTOM_ID: class-and-id-selectors
+:END:
+*Class* -- selects all elements with class attribute containing =foo= or
+only =p= elements with that class
+
+#+begin_src css
+.foo {
+    bar: fum;
+}
+p.foo {
+    bar: fum;
+}
+#+end_src
+
+*ID* -- selects the element with 'foo' id attribute value
+
+#+begin_src css
+#foo {
+    bar: fum;
+}
+#+end_src
+
+** Contextual selectors
+:PROPERTIES:
+:CUSTOM_ID: contextual-selectors
+:END:
+*Descendant* -- selects all =p= elements within the infinite-level
+hierarchy of element =#foo= descendants
+
+#+begin_src css
+#foo p {
+    bar: fum;
+}
+#+end_src
+
+*Adjacent sibling* -- selects the sibling element =p= that is
+immediately next to =h2= element
+
+#+begin_src css
+h2 + p {
+    foo: bar;
+}
+#+end_src
+
+*Child* -- selects all =p= elements that are immediate children of
+=#foo= element
+
+#+begin_src css
+#foo > p {
+    bar: fum;
+}
+#+end_src
+
+*General sibling* -- selects all elements =p= that are siblings to the
+=h2= element
+
+#+begin_src css
+h2 ~ p {
+    foo: bar;
+}
+#+end_src
+
+** Pseudo-class selectors
+:PROPERTIES:
+:CUSTOM_ID: pseudo-class-selectors
+:END:
+*** Pseudo-class selectors for link and user states
+:PROPERTIES:
+:CUSTOM_ID: pseudo-class-selectors-for-link-and-user-states
+:END:
+*Unvisited link* -- applies to link elements that have not been visited
+
+#+begin_src css
+a:link {
+    foo: bar;
+}
+#+end_src
+
+*Visited link* -- applies to link elements that have been visited
+
+#+begin_src css
+a:visited {
+    foo: bar;
+}
+#+end_src
+
+*Focus state* -- applies to selected =.foo= element that is ready for
+input
+
+#+begin_src css
+.foo:focus {
+    bar: fum;
+}
+#+end_src
+
+*Focus within state* -- applies to selected =.foo= element that is
+focused or has any focused child
+
+#+begin_src css
+.foo:focus-within {
+    bar: fum;
+}
+#+end_src
+
+*Hover state* -- applies when mouse pointer is over the =.foo= element
+
+#+begin_src css
+.foo:hover {
+    bar: fum;
+}
+#+end_src
+
+*Active state* -- applies when =.foo= element is in process of being
+clicked
+
+#+begin_src css
+.foo:active {
+    bar: fum;
+}
+#+end_src
+
+*** Pseudo-class selectors that apply to siblings
+:PROPERTIES:
+:CUSTOM_ID: pseudo-class-selectors-that-apply-to-siblings
+:END:
+*First child* -- selects the specified =.foo= element when it is the
+first child of its parent
+
+#+begin_src css
+.foo:first-child {
+    bar: fum;
+}
+#+end_src
+
+*Last child* -- selects the specified =.foo= element when it is the last
+child of its parent
+
+#+begin_src css
+.foo:last-child {
+    bar: fum;
+}
+#+end_src
+
+*Only child* -- selects the specified =.foo= element when it is the only
+child of its parent
+
+#+begin_src css
+.foo:only-child {
+    bar: fum;
+}
+#+end_src
+
+*First of type* -- selects the =h2= element when it is the first element
+of its type within its parent element
+
+#+begin_src css
+h2:first-of-type {
+    foo: bar;
+}
+#+end_src
+
+*Last of type* -- selects the =h2= element when it is the last element
+of its type within its parent element
+
+#+begin_src css
+h2:last-of-type {
+    foo: bar;
+}
+#+end_src
+
+*Only of type* -- selects the =h2= element when it is the only element
+of its type within its parent element
+
+#+begin_src css
+h2:only-of-type {
+    foo: bar;
+}
+#+end_src
+
+*Nth child* -- selects the =n=th =.foo= child element
+
+#+begin_src css
+.foo:nth-child(n) {
+    bar: fum;
+}
+#+end_src
+
+*Nth last child* -- selects the =n=th =.foo= child element counting
+backwards
+
+#+begin_src css
+.foo:nth-last-child(n) {
+    bar: fum;
+}
+#+end_src
+
+*Nth of type* -- selects the =n=th =h2= child element of its type
+
+#+begin_src css
+h2:nth-of-type(n) {
+    foo: bar;
+}
+#+end_src
+
+*Nth last of type* -- selects the =n=th =h2= child element of its type
+counting backwards
+
+#+begin_src css
+h2:nth-last-of-type(n) {
+    foo: bar;
+}
+#+end_src
+
+Useful =n= values:
+
+- =odd= or =2n+1= -- every odd child or element
+- =even= or =2n= -- every even child or element
+- =n= -- every nth child or element
+- =3n= -- every third child or element (3, 6, 9, ...)
+- =3n+1= -- every third child or element starting with =1= (1, 4, 7,
+  ...)
+- =n+6= -- all but first five children or elements (6, 7, 8, ...)
+- =-n+5= -- only first five children or elements (1, 2, ..., 5)
+
+*** Pseudo-element selectors
+:PROPERTIES:
+:CUSTOM_ID: pseudo-element-selectors
+:END:
+*First letter* -- selects the first letter of the specified =.foo=
+element, commonly used with =:first-child= to target first paragraph
+
+#+begin_src css
+.foo::first-letter {
+    bar: fum;
+}
+#+end_src
+
+*First line* -- selects the first line of the specified =.foo= element,
+commonly used with =:first-child= to target first paragraph
+
+#+begin_src css
+.foo::first-line {
+    bar: fum;
+}
+#+end_src
+
+*Before* -- adds generated content before the =.foo= element when used
+with =content= property
+
+#+begin_src css
+.foo::before {
+    bar: fum;
+    content: 'baz';
+}
+#+end_src
+
+*After* -- adds generated content after the =.foo= element when used
+with =content= property
+
+#+begin_src css
+.foo::after {
+    bar: fum;
+    content: 'baz';
+}
+#+end_src
+
+** Attribute selectors
+:PROPERTIES:
+:CUSTOM_ID: attribute-selectors
+:END:
+*Present* -- selects =.foo= elements with =bar= attribute present,
+regardless of its value
+
+#+begin_src css
+.foo[bar] {
+    fum: baz;
+}
+#+end_src
+
+*Exact* -- selects =.foo= elements where the =bar= attribute has the
+exact value of =fum=
+
+#+begin_src css
+.foo[bar="fum"] {
+    baz: qux;
+}
+#+end_src
+
+*Whitespace separated* -- selects =.foo= elements with =bar= attribute
+values contain specified partial value of =fum= (whitespace separated)
+
+#+begin_src css
+.foo[bar~="fum"] {
+    baz: qux;
+}
+#+end_src
+
+*Hyphen separated* -- selects =.foo= elements with =bar= attribute
+values contain specified partial value of =fum= immediately followed by
+hyphen (=-=) character
+
+#+begin_src css
+.foo[bar|="fum"] {
+    baz: qux;
+}
+#+end_src
+
+*Begins with* -- selects =.foo= elements where the =bar= attribute
+begins with =fum=
+
+#+begin_src css
+.foo[bar^="fum"] {
+    baz: qux;
+}
+#+end_src
+
+*Ends with* -- selects =.foo= elements where the =bar= attribute ends
+with =fum=
+
+#+begin_src css
+.foo[bar$="fum"] {
+    baz: qux;
+}
+#+end_src
+
+*Contains* -- selects =.foo= elements where the =bar= attribute contains
+string =fum= followed and preceded by any number of other characters
+
+#+begin_src css
+.foo[bar*="fum"] {
+    baz: qux;
+}
+#+end_src
+
+** Misc selectors
+:PROPERTIES:
+:CUSTOM_ID: misc-selectors
+:END:
+*Not* -- selects =.foo= elements that are NOT =.bar= elements
+
+#+begin_src css
+.foo:not(.bar) {
+    fum: baz;
+}
+#+end_src
+
+*Root* -- selects the highest level parent element in the DOM
+
+#+begin_src css
+:root {
+    foo: bar;
+}
+#+end_src
+
+*Empty* -- selects =.foo= elements that have no children or whitespace
+inside
+
+#+begin_src css
+.foo:empty {
+    bar: fum;
+}
+#+end_src
+
+*In-range* and *Out-of-range* -- selects =.foo= elements that have
+values in or out of range
+
+#+begin_src css
+.foo:in-range {
+    bar: fum;
+}
+.foo:out-of-range {
+    bar: fum;
+}
+#+end_src
