@@ -4,6 +4,12 @@ fast and user-friendly alternative to
 aim to support all of =find='s powerful functionality, it provides
 sensible (opinionated) defaults for a majority of use cases.
 
+* quick note
+  - --strip-cwd-prefix=always ::
+    By default, relative paths are prefixed with './' when -x/--exec,
+    -X/--exec-batch, or -0/--print0 are given, to reduce the risk of a
+    path starting with '-' being treated as a command line option.
+
 * Simple search
 :PROPERTIES:
 :CUSTOM_ID: simple-search
