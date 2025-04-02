@@ -38,6 +38,11 @@ print -l **/*(Lk+3)
 ## Show files modified in the last hour
 print -l **/*(mh-1)
 
+## Glob: If no matching pattern is found, the shell gives an
+## error message, unless the NULL_GLOB option is set
+## glob flag `N` activates NULL_GLOB for current pattern
+print -l noexist*(N)  # won't print `sh: no matches found: *.txt`
+
 ## Sort files from most to least recently modified and show the last 3
 print -l **/*(om[1,3])
 
