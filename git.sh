@@ -299,7 +299,7 @@ git push -u origin master
 # Push:
 git push origin master
 
-Force-Push: `git push origin master --force
+Force-Push: `git push origin master --force`
 
 # Pull:
 git pull

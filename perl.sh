@@ -1,5 +1,11 @@
 # http://www.catonmat.net/download/perl1line.txt
 
+# s/...// applies to $_ (current line if -n flag)
+
+# NOTE use `r` flag to not modify a variable AND return the value
+echo -n abc | perl -ne 's/a/b/r ; print'  # prints abc
+echo -n abc | perl -ne 'print $_ =~ s/a/b/r'  # prints bbc, without /r => prints 1 as operator `=~` returns bool
+
 # Print the total number of fields (words) on each line followed by the line
 perl -alne 'print scalar @F, " $_"'
 

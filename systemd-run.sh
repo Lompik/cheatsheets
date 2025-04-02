@@ -9,3 +9,6 @@ systemd-run \
   -E MYENVVAR=VAL \
   --setenv=ASABOVE=VAL \
   --unit=myprog-$(uuidgen -t)  # to set unique service name
+
+# send X notification if service failed
+systemd-run --property=ExecStopPost='/usr/bin/bash -c "if [ '"'$SERVICE_RESULT'"' != '"'success'"' ] ;then notify-send --icon=gnome-multimedia -u critical '"'prog failed to process'"' ;fi'

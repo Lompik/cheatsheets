@@ -9,3 +9,7 @@ $ ssh -N -L 80:intra.example.com:80 gw.example.com
 $ ssh -R 8080:localhost:80 public.example.com
 # pubexa:8080 -> localhost:80
 # This allows anyone on the remote server to connect to TCP port 8080 on the remote server. The connection will then be tunneled back to the client host, and the client then makes a TCP connection to port 80 on localhost. Any other host name or IP address could be used instead of localhost to specify the host to connect to.
+
+# WARN Use -n when piping ssh output to other program
+# prevents keyboard input potentially read by ssh (racecond)
+ssh -n ... | my_fuzzy_program

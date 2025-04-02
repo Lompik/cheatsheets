@@ -1,3 +1,6 @@
+# -a will automatically select compression
+tar -c{z,j,J}vf -> tar -cavf
+
 # To extract an uncompressed archive:
 tar -xvf /path/to/foo.tar
 

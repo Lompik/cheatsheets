@@ -331,7 +331,7 @@ perl -ple 'y/A-Za-z/a-zA-Z/'
 # Camel case each line
 perl -ple 's/(\w+)/\u$1/g'
 perl -ple 's/(?<!['])(\w+)/\u\1/g'
-
+#'
 # Strip leading whitespace (spaces, tabs) from the beginning of each line
 perl -ple 's/^[ \t]+//'
 perl -ple 's/^\s+//'
